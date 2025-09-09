@@ -1,0 +1,5 @@
+node -> note connections only allowed during temporal-concrete tie consolidation phase. in concrete-conceptual consolidation, only note -> note connections become available. however, session summaries (can be implemented later) will be concrete temporal notes, whereas everything else will essentially act as a metadata lookup db. 
+
+conceptual: no tie interface, therefore only internal node->note references
+concrete: tied to conceptual. therefore internal node->note refs and external note -> note references conceptual/{id}. 
+temporal: written summary given a note assignment with singular internal node -> note reference automatically. switch to different system prompt, tie interface with no note edit capabilities. simply adds EXTERNAL node -> note references.
