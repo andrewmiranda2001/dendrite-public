@@ -31,15 +31,30 @@ When you mention relationship anxiety, Dendrite connects:
 ## 🔧 Technical Innovation
 
 ### Asymmetric Retrieval
-- **Concrete side**: Proximity-weighted embeddings with spatial decay
-- **Conceptual side**: Model-driven psychological reasoning
-- **Cross-database bridges**: Semantic pathways through psychological understanding
 
-### Intelligent Writing
-Models create psychological insights, not conversation dumps:
-- **Pattern recognition**: Identifies recurring behavioral themes
-- **Strategic categorization**: Builds psychological frameworks automatically
-- **Cross-reference creation**: Links insights across life domains
+**Concrete/Temporal System**:  Uses model-controlled semantic chunking to extract targeted conversation segments as input embeddings for graph traversal from intelligently placed search heads. Traversal decisions are made using semantic similarity scores between the input embedding and proximity-weighted embeddings of neighboring nodes, or direct embeddings of notes at the current node. Instead of noisy full-conversation vectors or arbitrary chunking, the system gets precise queries like "mom's criticism about career choices" directed to specific knowledge domains.
+
+**Conceptual System**: Employs fine-tuned models for all traversal decisions to ensure psychological subtext and emotional patterns drive navigation rather than surface-level keyword matching. This system understands that "I'm fine" might signal distress based on conversational context and historical patterns.
+
+**The Intersection Magic**: When both retrieval systems converge on related psychological territory - concrete events that exemplify conceptual patterns - the system provides rich, multi-layered context. A current work stress discussion connects to specific past conversations (concrete) while simultaneously surfacing underlying perfectionism patterns (conceptual), creating genuinely insightful dialogue.
+
+This dual-system approach solves traditional RAG's fundamental limitation: the inability to understand subtextual connections that aren't semantically obvious. The retrieval magic happens at the convergence points where lived experience meets psychological insight.
+
+### Sequential Write Passes
+**Two-Phase Architecture**: Writing and tying are separate passes with distinct system prompts and MCP tools.
+
+**Phase 1 - Writing**: 
+- **Conceptual Writer**: Creates psychological frameworks with internal node references only
+- **Concrete Writer**: Documents specific people, places, and events with internal node references
+- **Temporal Summarizer**: Generates session summaries with temporal node reference to the session time
+
+**Phase 2 - Tie Consolidation**:
+- **Concrete Tie Consolidator**: Creates note-to-note connections between concrete and conceptual notes
+- **Temporal Tie Consolidator**: Adds node-to-note temporal node tags to concrete notes from the session
+
+**Git-Style Change Tracking**: Models see granular edit history through diff visualization - which nodes were added/modified, note content changes, reference updates - enabling contextual understanding of session evolution without cognitive overload.
+
+This separation ensures clean cognitive focus - writers concentrate on their domain expertise without cross-database complexity, then specialized tie consolidators create the cross-layer connections that enable intersection magic during retrieval.
 
 ### Technical Stack
 - **MCP Integration**: Modular tools for different AI providers
@@ -81,23 +96,6 @@ Dendrite enables AI that actually *knows* you:
 - **Personal growth tracking**: Psychological development over time  
 - **Relationship insights**: Patterns across all your connections
 - **Contextual wisdom**: Advice based on your psychological profile
-
-## 🛠️ Getting Started
-
-```bash
-# Install
-pip install -e .
-
-# Configure
-export CONFIG_PATH=./config.json
-export CONFIG=openai_write
-export DB_ROOT=./dendrite/db/storage
-
-# Run write pass
-python -c "from dendrite.utils.config import run_write_pass; run_write_pass('./dendrite/data/prompts/write/relationships.json')"
-```
-# Note: This is an early-stage research prototype. 
-# The core architecture is functional but not yet production-ready.
 
 ## 🔬 Beyond Current Solutions
 
